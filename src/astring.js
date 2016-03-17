@@ -853,7 +853,10 @@ let traveler = {
 	},
 	Literal( node, state ) {
 		state.code.write( node.raw )
-	}
+	},
+  WhiteSpace( node, state ) {
+    state.code.write( node.value );
+  }
 }
 
 
@@ -862,7 +865,7 @@ class Stream {
 	constructor() {
 		this.data = ''
 	}
-	
+
 	write( string ) {
 		this.data += string;
 	}
